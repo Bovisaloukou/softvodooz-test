@@ -31,7 +31,6 @@ async function fetchApi<T>(endpoint: string): Promise<T> {
 }
 
 export const api = {
-  // Récupérer les étagères de l'utilisateur
   async getBookshelves(params?: PaginationParams): Promise<Bookshelf[]> {
     const searchParams = new URLSearchParams()
     if (params?.offset) searchParams.set("offset", params.offset.toString())
@@ -41,7 +40,6 @@ export const api = {
     return fetchApi<Bookshelf[]>(`/users/${USER_ID}/shelves${query}`)
   },
 
-  // Récupérer les IDs des livres d'une étagère
   async getShelfBooks(shelfId: string, params?: PaginationParams): Promise<string[]> {
     const searchParams = new URLSearchParams()
     if (params?.offset) searchParams.set("offset", params.offset.toString())
@@ -51,7 +49,6 @@ export const api = {
     return fetchApi<string[]>(`/shelves/${shelfId}/forms${query}`)
   },
 
-  // Récupérer les détails d'un livre
   async getBookDetails(formId: string): Promise<Book> {
     return fetchApi<Book>(`/forms/${formId}`)
   },

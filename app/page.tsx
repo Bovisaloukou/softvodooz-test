@@ -76,10 +76,8 @@ export default function HomePage() {
     <div className="min-h-screen">
       <HeroSection />
 
-      {/* Shelves Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in-up">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 text-sm font-medium mb-6">
               <Sparkles className="h-4 w-4 mr-2" />
@@ -99,7 +97,6 @@ export default function HomePage() {
             )}
           </div>
 
-          {/* Shelves Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-12">
             {shelves.map((shelf, index) => (
               <Link key={shelf.id} href={`/shelf/${shelf.id}`} className="group">
@@ -129,7 +126,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Pagination */}
           <div className="animate-fade-in-up">
             <Pagination
               currentPage={currentPage}

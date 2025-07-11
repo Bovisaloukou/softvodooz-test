@@ -28,20 +28,17 @@ export function usePagination<T>({ data, initialItemsPerPage = 24 }: UsePaginati
   const totalItems = data.length
   const totalPages = Math.ceil(totalItems / itemsPerPage)
 
-  // Calculer les données paginées
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
     return data.slice(startIndex, endIndex)
   }, [data, currentPage, itemsPerPage])
 
-  // Réinitialiser à la page 1 si on change le nombre d'éléments par page
   const handleItemsPerPageChange = (newItemsPerPage: number) => {
     setItemsPerPage(newItemsPerPage)
     setCurrentPage(1)
   }
 
-  // S'assurer que la page courante est valide
   const handlePageChange = (page: number) => {
     const validPage = Math.max(1, Math.min(page, totalPages))
     setCurrentPage(validPage)

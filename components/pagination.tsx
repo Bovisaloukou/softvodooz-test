@@ -26,7 +26,6 @@ export function Pagination({
   const startItem = (currentPage - 1) * itemsPerPage + 1
   const endItem = Math.min(currentPage * itemsPerPage, totalItems)
 
-  // Générer les numéros de pages à afficher
   const getPageNumbers = () => {
     const pages: (number | string)[] = []
     const maxVisiblePages = 5
