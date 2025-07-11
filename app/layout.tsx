@@ -18,8 +18,9 @@ export const metadata: Metadata = {
     "Découvrez, organisez et explorez votre collection de livres avec une interface moderne et intuitive",
   keywords: "bibliothèque, livres, lecture, collection, organisation",
   authors: [{ name: "Bibliothèque Team" }],
-  viewport: "width=device-width, initial-scale=1",
 };
+
+export const viewport =   "width=device-width, initial-scale=1"
 
 export default function RootLayout({
   children,
