@@ -33,7 +33,6 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 group-hover:scale-105 transition-transform duration-200">
               <BookOpen className="h-6 w-6 text-white" />
@@ -41,7 +40,6 @@ export function Header() {
             <span className="text-xl font-bold text-gradient">Bibliothèque</span>
           </Link>
 
-          {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center space-x-1">
             {navigation.map((item) => (
               <Link
@@ -56,7 +54,6 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Actions Desktop */}
           <div className="hidden md:flex items-center space-x-3">
             <Button variant="ghost" size="sm" className="rounded-full">
               <Search className="h-4 w-4" />
@@ -69,7 +66,6 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
           <Button
             variant="ghost"
             size="sm"
@@ -81,7 +77,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50 animate-slide-in">
           <div className="px-4 py-4 space-y-2">

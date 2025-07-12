@@ -28,9 +28,8 @@ export function formatBookPrice(book: Book): string | null {
   }
 
   const { amount, currency } = book.price
-  const price = amount / 100 // Convertir les centimes en unité principale
+  const price = amount / 100
 
-  // Formatage selon la devise
   const formatter = new Intl.NumberFormat("fr-FR", {
     style: "currency",
     currency: currency,

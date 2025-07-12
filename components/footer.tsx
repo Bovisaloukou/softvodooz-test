@@ -37,7 +37,6 @@ export function Footer() {
     <footer className="bg-gradient-to-br from-gray-50 to-gray-100 border-t border-gray-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-          {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 group mb-4">
               <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 group-hover:scale-105 transition-transform duration-200">
@@ -70,7 +69,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Produit</h3>
             <ul className="space-y-3">
@@ -133,16 +131,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-gray-200/50 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">© {currentYear} Bibliothèque. Tous droits réservés.</p>
-          <div className="flex items-center space-x-1 text-gray-500 text-sm mt-4 md:mt-0">
-            <span>Fait avec</span>
-            <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-            <span>par des développeurs passionnés</span>
           </div>
         </div>
       </div>

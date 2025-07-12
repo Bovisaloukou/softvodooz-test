@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -10,11 +10,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import type { Book } from "@/lib/types"
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import type { Book } from "@/lib/types";
 import {
   BookOpen,
   User,
@@ -28,7 +28,7 @@ import {
   Eye,
   DollarSign,
   Tag,
-} from "lucide-react"
+} from "lucide-react";
 import {
   getBookPageCount,
   formatBookPrice,
@@ -36,25 +36,24 @@ import {
   getAuthorRoleLabel,
   canBuyBook,
   canSampleBook,
-} from "@/lib/utils"
+} from "@/lib/utils";
 
 interface BookDetailModalProps {
-  book: Book
-  children: React.ReactNode
+  book: Book;
+  children: React.ReactNode;
 }
 
 export function BookDetailModal({ book, children }: BookDetailModalProps) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
-  // Nettoyer la description HTML
-  const cleanDescription = book.description?.replace(/<[^>]*>/g, "")
-  const pageCount = getBookPageCount(book)
-  const price = formatBookPrice(book)
-  const publicationDate = formatPublicationDate(book)
+  const cleanDescription = book.description?.replace(/<[^>]*>/g, "");
+  const pageCount = getBookPageCount(book);
+  const price = formatBookPrice(book);
+  const publicationDate = formatPublicationDate(book);
   const hasSubjects =
     (book.subjects?.bisac?.length ?? 0) > 0 ||
     (book.subjects?.thema?.length ?? 0) > 0 ||
-    (book.subjects?.clil?.length ?? 0) > 0
+    (book.subjects?.clil?.length ?? 0) > 0;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -67,7 +66,9 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
               <span key={author.id}>
                 {author.name}
                 {getAuthorRoleLabel(author.role) && (
-                  <span className="text-sm text-muted-foreground ml-1">({getAuthorRoleLabel(author.role)})</span>
+                  <span className="text-sm text-muted-foreground ml-1">
+                    ({getAuthorRoleLabel(author.role)})
+                  </span>
                 )}
                 {index < book.authors.length - 1 && ", "}
               </span>
@@ -96,7 +97,10 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
                   {/* Badge pour les pages */}
                   {pageCount && (
                     <div className="absolute top-3 right-3">
-                      <Badge variant="secondary" className="text-sm bg-black/70 text-white">
+                      <Badge
+                        variant="secondary"
+                        className="text-sm bg-black/70 text-white"
+                      >
                         {pageCount}p
                       </Badge>
                     </div>
@@ -137,7 +141,10 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
                     </div>
                     <div className="pl-6 space-y-1">
                       {book.authors.map((author) => (
-                        <div key={author.id} className="flex items-center gap-2">
+                        <div
+                          key={author.id}
+                          className="flex items-center gap-2"
+                        >
                           <span>{author.name}</span>
                           {getAuthorRoleLabel(author.role) && (
                             <Badge variant="outline" className="text-xs">
@@ -214,7 +221,9 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
                         <DollarSign className="h-4 w-4 text-muted-foreground" />
                         <span className="font-semibold">Prix</span>
                       </div>
-                      <div className="pl-6 font-semibold text-lg text-blue-600">{price}</div>
+                      <div className="pl-6 font-semibold text-lg text-blue-600">
+                        {price}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -222,27 +231,41 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
                 {/* Badges */}
                 <div className="flex gap-2 flex-wrap">
                   {book.is_free && (
-                    <Badge variant="secondary" className="bg-green-100 text-green-800">
+                    <Badge
+                      variant="secondary"
+                      className="bg-green-100 text-green-800"
+                    >
                       Gratuit
                     </Badge>
                   )}
                   {book.adult && (
-                    <Badge variant="outline" className="border-red-200 text-red-700">
+                    <Badge
+                      variant="outline"
+                      className="border-red-200 text-red-700"
+                    >
                       18+
                     </Badge>
                   )}
                   <Badge variant="outline" className="uppercase">
                     {book.form}
                   </Badge>
-                  {pageCount && <Badge variant="outline">{pageCount} pages</Badge>}
+                  {pageCount && (
+                    <Badge variant="outline">{pageCount} pages</Badge>
+                  )}
                   {canSampleBook(book) && (
-                    <Badge variant="outline" className="text-blue-600 border-blue-200">
+                    <Badge
+                      variant="outline"
+                      className="text-blue-600 border-blue-200"
+                    >
                       <Eye className="h-3 w-3 mr-1" />
                       Aperçu disponible
                     </Badge>
                   )}
                   {canBuyBook(book) && (
-                    <Badge variant="outline" className="text-green-600 border-green-200">
+                    <Badge
+                      variant="outline"
+                      className="text-green-600 border-green-200"
+                    >
                       <ShoppingCart className="h-3 w-3 mr-1" />
                       Achat disponible
                     </Badge>
@@ -265,13 +288,21 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
                       ))}
 
                       {book.subjects?.thema?.map((s) => (
-                        <Badge key={s} variant="outline" className="text-xs bg-blue-50 text-blue-700">
+                        <Badge
+                          key={s}
+                          variant="outline"
+                          className="text-xs bg-blue-50 text-blue-700"
+                        >
                           {s}
                         </Badge>
                       ))}
 
                       {book.subjects?.clil?.map((s) => (
-                        <Badge key={s} variant="outline" className="text-xs bg-purple-50 text-purple-700">
+                        <Badge
+                          key={s}
+                          variant="outline"
+                          className="text-xs bg-purple-50 text-purple-700"
+                        >
                           {s}
                         </Badge>
                       ))}
@@ -285,12 +316,14 @@ export function BookDetailModal({ book, children }: BookDetailModalProps) {
             {cleanDescription && (
               <div className="space-y-3">
                 <h4 className="text-lg font-semibold">Description</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{cleanDescription}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {cleanDescription}
+                </p>
               </div>
             )}
           </div>
         </ScrollArea>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

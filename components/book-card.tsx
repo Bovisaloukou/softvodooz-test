@@ -12,7 +12,6 @@ interface BookCardProps {
 }
 
 export function BookCard({ book }: BookCardProps) {
-  // Nettoyer la description HTML pour l'affichage
   const cleanDescription = book.description
     ?.replace(/<[^>]*>/g, "")
     ?.substring(0, 120)
