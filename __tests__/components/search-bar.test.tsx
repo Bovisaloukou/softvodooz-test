@@ -1,7 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import { SearchBar } from "@/components/search-bar"
-import jest from "jest"
-
 describe("SearchBar", () => {
   const mockOnSearch = jest.fn()
 
@@ -65,8 +63,8 @@ describe("SearchBar", () => {
 
     fireEvent.change(input, { target: { value: "test" } })
 
-    // Clear button should appear
-    expect(screen.getByRole("button")).toBeInTheDocument()
+    // Clear button should appear (there are 2 buttons: clear and submit)
+    expect(screen.getAllByRole("button")).toHaveLength(2)
   })
 
   it("should clear input and call onSearch with empty string when clear button is clicked", () => {

@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Bibliothèque Team" }],
 };
 
-export const viewport =   "width=device-width, initial-scale=1"
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export default function RootLayout({
   children,
@@ -28,11 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={inter.variable}>
-      <body className={`${inter.className} antialiased`}>
-        <div className="min-h-screen bg-background">
+    <html lang="fr" className={inter.variable} suppressHydrationWarning>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+        <div className="min-h-screen flex flex-col bg-background">
           <Header />
-          <main className="pt-16">{children}</main>
+          <main className="flex-1 pt-16">{children}</main>
           <Footer />
           <ScrollToTop />
         </div>
