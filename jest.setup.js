@@ -1,7 +1,4 @@
-"use client"
-
-import "@testing-library/jest-dom"
-import jest from "jest"
+import "@testing-library/jest-dom";
 
 // Mock next/navigation
 jest.mock("next/navigation", () => ({

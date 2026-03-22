@@ -1,7 +1,5 @@
 import { renderHook, waitFor } from "@testing-library/react"
 import { useApi } from "@/hooks/use-api"
-import jest from "jest" // Import jest to declare the variable
-
 // Mock d'une fonction API
 const mockApiCall = jest.fn()
 

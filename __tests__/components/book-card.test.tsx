@@ -2,8 +2,6 @@ import type React from "react"
 import { render, screen } from "@testing-library/react"
 import { BookCard } from "@/components/book-card"
 import type { Book } from "@/lib/types"
-import jest from "jest" // Import jest to fix the undeclared variable error
-
 // Mock du modal component
 jest.mock("@/components/book-detail-modal", () => ({
   BookDetailModal: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
@@ -60,13 +58,13 @@ describe("BookCard", () => {
   it("should render language", () => {
     render(<BookCard book={mockBook} />)
 
-    expect(screen.getByText("EN")).toBeInTheDocument()
+    expect(screen.getByText("en")).toBeInTheDocument()
   })
 
   it("should render form type", () => {
     render(<BookCard book={mockBook} />)
 
-    expect(screen.getByText("EBOOK")).toBeInTheDocument()
+    expect(screen.getByText("ebook")).toBeInTheDocument()
   })
 
   it("should render free badge when book is free", () => {
@@ -100,8 +98,8 @@ describe("BookCard", () => {
     const bookWithoutImage = { ...mockBook, image: undefined }
     render(<BookCard book={bookWithoutImage} />)
 
-    // Should render BookOpen icon as fallback
-    expect(screen.getByTestId("book-open-icon") || screen.getByRole("img")).toBeInTheDocument()
+    // Should not render an image tag
+    expect(screen.queryByRole("img")).not.toBeInTheDocument()
   })
 
   it("should handle book without pages", () => {

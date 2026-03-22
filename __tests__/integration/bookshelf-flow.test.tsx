@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation"
 import HomePage from "@/app/page"
 import ShelfPage from "@/app/shelf/[id]/page"
 import { api } from "@/lib/api"
-import jest from "jest"
-
 // Mock Next.js router
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
