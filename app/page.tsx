@@ -113,7 +113,6 @@ export default function HomePage() {
                     <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
                       {shelf.title}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">Créée par {shelf.user.name}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center gap-2 text-sm text-gray-500">
